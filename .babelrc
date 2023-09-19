@@ -1,0 +1,7 @@
+// ile này sẽ cho phép bạn sử dụng các tính năng và cú pháp JavaScript mới nhất, 
+// bao gồm arrow function, class, modules, import.. và nhiều thứ khác
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
