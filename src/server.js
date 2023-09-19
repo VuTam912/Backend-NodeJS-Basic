@@ -2,9 +2,10 @@
 // const express = require('express'); // require (old) = import (new)
 import express from 'express';
 import configViewEngine from './configs/viewEngine';
+import 'dotenv/config'; // old => require('dotenv').config()
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3001;
 
 // Config View Engine - render html with code javascript
 configViewEngine(app);
