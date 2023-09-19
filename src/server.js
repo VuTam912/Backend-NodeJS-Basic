@@ -4,6 +4,7 @@ import express from 'express';
 import configViewEngine from './configs/viewEngine';
 import 'dotenv/config'; // old => require('dotenv').config()
 import initWebRoute from './routes/web';
+import connection from './configs/connectDB'; // call connection SQL (database)
 
 const app = express();
 const port = process.env.PORT || 3001;
