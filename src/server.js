@@ -9,6 +9,10 @@ import connection from './configs/connectDB'; // call connection SQL (database)
 const app = express();
 const port = process.env.PORT || 3001;
 
+// config req.body => handle input post | chuyển data JSON sang Object của javascript
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // Config View Engine - render html with code javascript
 configViewEngine(app);
 

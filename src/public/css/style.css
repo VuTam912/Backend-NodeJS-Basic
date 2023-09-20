@@ -87,3 +87,19 @@ th {
 tr:not(.fields):hover {
     background-color: #ddd;
 }
+
+/* Form */
+.create-user-container {
+    margin-top: 50px;
+    padding   : 15px;
+    text-align: center;
+}
+
+.create-user-container label {
+    display: block;
+}
+
+.btn-submit {
+    margin-top: 15px;
+    cursor    : pointer;
+}

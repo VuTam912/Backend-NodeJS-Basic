@@ -18,7 +18,20 @@ let getDetailPage = async (req, res) => {
 	return res.send(JSON.stringify(user));
 };
 
+// note: config: convert JSON to objects in server.js
+let createNewUser = async (req, res) => {
+	let { firstname, lastname, email, address } = req.body;
+
+	await connectionPool.execute(
+		`INSERT INTO users (firstname,lastname,email,address) VALUES (?, ?, ?, ?)`,
+		[firstname, lastname, email, address]
+	);
+	// quay lai/ chuyen huong (redirect)
+	res.redirect('/');
+};
+
 module.exports = {
 	getHomepage,
 	getDetailPage,
+	createNewUser,
 };

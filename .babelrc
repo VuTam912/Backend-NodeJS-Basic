@@ -1,5 +1,6 @@
 // ile này sẽ cho phép bạn sử dụng các tính năng và cú pháp JavaScript mới nhất, 
 // bao gồm arrow function, class, modules, import.. và nhiều thứ khác
+// Tuy nhiên nếu sài express ver mới thì ko cần dùng body-parser
 {
     "presets": [
         "@babel/preset-env"
