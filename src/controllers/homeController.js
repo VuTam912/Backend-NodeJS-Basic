@@ -27,11 +27,48 @@ let createNewUser = async (req, res) => {
 		[firstname, lastname, email, address]
 	);
 	// quay lai/ chuyen huong (redirect)
-	res.redirect('/');
+	return res.redirect('/');
+};
+
+// delete - su dung input da set value <% datauser.id %> de delete voi id thay vi dung params cua router
+// áp dụng cho chuẩn restful
+let deleteUser = async (req, res) => {
+	let userId = req.body.userId;
+	console.log(userId);
+	await connectionPool.execute('DELETE FROM users WHERE id = ?', [userId]);
+	return res.redirect('/');
+	// res.send('delete success');
+};
+
+// edit User
+let getEditPage = async (req, res) => {
+	let id = req.params.id;
+	let [user] = await connectionPool.execute(
+		'SELECT * FROM users WHERE id = ?',
+		[id]
+	);
+	// check if data is empty or not
+	let results = user && user.length > 0 ? user[0] : {};
+	return res.render('update.ejs', { dataUser: results }); // x <- y
+};
+
+// update User -
+let postUpdateUser = async (req, res) => {
+	// id => su dung input hidden - theo chuẩn restful
+	let { firstname, lastname, email, address, userId } = req.body;
+
+	await connectionPool.execute(
+		`UPDATE users SET firstname = ?, lastname=?,email=?, address=?  WHERE id = ? `,
+		[firstname, lastname, email, address, userId]
+	);
+	return res.redirect('/');
 };
 
 module.exports = {
 	getHomepage,
 	getDetailPage,
 	createNewUser,
+	deleteUser,
+	getEditPage,
+	postUpdateUser,
 };
