@@ -34,7 +34,6 @@ let createNewUser = async (req, res) => {
 // áp dụng cho chuẩn restful
 let deleteUser = async (req, res) => {
 	let userId = req.body.userId;
-	console.log(userId);
 	await connectionPool.execute('DELETE FROM users WHERE id = ?', [userId]);
 	return res.redirect('/');
 	// res.send('delete success');

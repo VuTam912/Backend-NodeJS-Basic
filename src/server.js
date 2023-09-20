@@ -5,19 +5,23 @@ import configViewEngine from './configs/viewEngine';
 import 'dotenv/config'; // old => require('dotenv').config()
 import initWebRoute from './routes/web';
 import connection from './configs/connectDB'; // call connection SQL (database)
+import initAPIRoute from './routes/api';
 
 const app = express();
 const port = process.env.PORT || 3001;
 
-// config req.body => handle input post | chuyển data JSON sang Object của javascript
+// setup req.body => handle input post | chuyển data JSON sang Object của javascript
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Config View Engine - render html with code javascript
+// setup View Engine - render html with code javascript
 configViewEngine(app);
 
-// Config web Route - điều hướng URL
+// init web Route - điều hướng URL
 initWebRoute(app);
+
+// init api Route
+initAPIRoute(app);
 
 app.listen(port, () => {
 	console.log(`Express server is running at http://localhost:${port}`);
