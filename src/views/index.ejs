@@ -26,9 +26,14 @@
 					<td><%= dataUser[i].firstname %></td>
 					<td><%= dataUser[i].lastname %></td>
 					<td class="td_action">
-						<a href="/detail/user/<%= dataUser[i].id%>" target="_blank"
-							>Detail</a
-						>
+						<form>
+							<a
+								class="btn-detail"
+								href="/detail/user/<%= dataUser[i].id%>"
+								target="_blank"
+								>Detail</a
+							>
+						</form>
 						<form action="/edit-user/<%= dataUser[i].id%>" method="get">
 							<button type="submit">Edit</button>
 						</form>

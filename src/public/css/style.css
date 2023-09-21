@@ -104,14 +104,38 @@ tr:not(.fields):hover {
     cursor    : pointer;
 }
 
+.td_action {
+    display: flex;
+    gap    : 10px;
+}
+
+.btn-detail {
+    text-decoration: none;
+    color          : grey;
+    border         : 1px solid #ddd;
+    padding        : 3px 5px;
+    border-radius  : 3px;
+    position       : relative;
+    top            : 1px;
+}
+
+.btn-detail:hover {
+    background-color: #434242;
+    color           : white
+}
+
 /* Upload file */
 .upload-file-container {
     margin: 15px;
 }
 
+.upload-file-container h1 {
+    font-weight: 300;
+}
+
 .upload-file-container label {
     display    : block;
-    font-weight: 600;
+    font-weight: 300;
     padding    : 15px 0;
     font-size  : 24px;
 }
