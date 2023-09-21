@@ -6,33 +6,7 @@ var appRoot = require('app-root-path');
 
 let router = express.Router();
 
-const storage = multer.diskStorage({
-	destination: function (req, file, cb) {
-		// console.log('--check Approot: ', appRoot);
-		cb(null, appRoot + '/src/public/image/');
-	},
-
-	// By default, multer removes file extensions so let's add them back
-	filename: function (req, file, cb) {
-		cb(
-			null,
-			file.fieldname + '-' + Date.now() + path.extname(file.originalname)
-		);
-	},
-});
-
-// loc file
-const imageFilter = function (req, file, cb) {
-	// Accept images only
-	if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
-		req.fileValidationError = 'Only image files are allowed!';
-		return cb(new Error('Only image files are allowed!'), false);
-	}
-	cb(null, true);
-};
-
-// init upload
-let upload = multer({ storage: storage, fileFilter: imageFilter });
+// ========= end upload file ========
 
 // Handle web route: localhost/..
 const initWebRoute = (app) => {
@@ -49,14 +23,17 @@ const initWebRoute = (app) => {
 	router.get('/edit-user/:id', homeController.getEditPage);
 	router.post('/update-user', homeController.postUpdateUser);
 
-	// URL navbar - and post - upload
+	// URL post navbar
 	router.get('/upload', homeController.getUploadFilePage);
+	// post - signle upload file
+	router.post('/upload-profile-pic', homeController.handleUploadFile);
+	// post - multiple upload file
 	router.post(
-		'/upload-profile-pic',
-		upload.single('profile_pic'),
-		homeController.handleUploadFile
+		'/upload-multiple-images',
+		homeController.handleUploadMultipleFile
 	);
 
+	// --about---
 	router.get('/about', (req, res) => {
 		res.send(`I'm Ryo Pham IT`);
 	});

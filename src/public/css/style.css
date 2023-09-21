@@ -110,7 +110,10 @@ tr:not(.fields):hover {
 }
 
 .upload-file-container label {
-    display: block;
+    display    : block;
+    font-weight: 600;
+    padding    : 15px 0;
+    font-size  : 24px;
 }
 
 .btn-save {

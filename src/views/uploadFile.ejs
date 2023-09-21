@@ -12,13 +12,15 @@
 		</div>
 
 		<div class="upload-file-container">
+			<h1>Headling FIle Uploads using Express.js and Multer</h1>
 			<form
 				method="POST"
 				action="/upload-profile-pic"
 				enctype="multipart/form-data"
 			>
 				<div>
-					<label>Avatar: </label>
+					<label>Upload Single File </label>
+					Select your profile picture:
 					<input type="file" name="profile_pic" />
 				</div>
 				<div>
@@ -26,13 +28,15 @@
 				</div>
 			</form>
 
+			<hr />
 			<form
 				method="POST"
 				action="/upload-multiple-images"
 				enctype="multipart/form-data"
 			>
 				<div>
-					<label>Select multiple images:</label>
+					<label>Upload Multiple Files: </label>
+					Select multiple images:
 					<input type="file" name="multiple_images" multiple />
 				</div>
 				<div>
