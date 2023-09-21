@@ -103,3 +103,17 @@ tr:not(.fields):hover {
     margin-top: 15px;
     cursor    : pointer;
 }
+
+/* Upload file */
+.upload-file-container {
+    margin: 15px;
+}
+
+.upload-file-container label {
+    display: block;
+}
+
+.btn-save {
+    margin-top: 15px;
+    cursor    : pointer;
+}

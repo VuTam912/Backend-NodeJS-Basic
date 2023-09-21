@@ -1,0 +1,49 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>NodeJS basic with express</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<div class="topnav">
+			<a href="/">Home</a>
+			<a class="active" href="/upload">Upload file</a>
+		</div>
+
+		<div class="upload-file-container">
+			<form
+				method="POST"
+				action="/upload-profile-pic"
+				enctype="multipart/form-data"
+			>
+				<div>
+					<label>Avatar: </label>
+					<input type="file" name="profile_pic" />
+				</div>
+				<div>
+					<button class="btn-save" type="submit">Save files</button>
+				</div>
+			</form>
+
+			<form
+				method="POST"
+				action="/upload-multiple-images"
+				enctype="multipart/form-data"
+			>
+				<div>
+					<label>Select multiple images:</label>
+					<input type="file" name="multiple_images" multiple />
+				</div>
+				<div>
+					<input
+						class="btn-save"
+						type="submit"
+						name="btn_upload_multiple_images"
+						value="Upload"
+					/>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
