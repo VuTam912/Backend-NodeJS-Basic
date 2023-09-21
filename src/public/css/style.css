@@ -144,3 +144,8 @@ tr:not(.fields):hover {
     margin-top: 15px;
     cursor    : pointer;
 }
+
+/* 404 not found */
+.notFound_container {
+    padding: 10px 15px;
+}
