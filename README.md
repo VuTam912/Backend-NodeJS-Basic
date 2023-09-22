@@ -1,3 +1,14 @@
+## Note: Create database to run nodejs_basic
+
+-- create a new table --
+CREATE TABLE `users` (
+`id` int not null primary key,
+`firstname` VARCHAR(255) NULL,
+`lastname` VARCHAR(255) NULL,
+`email` VARCHAR(255) NULL,
+`address` VARCHAR(255) NULL);
+--
+
 ## libraries:
 
 - multer : upload files.
